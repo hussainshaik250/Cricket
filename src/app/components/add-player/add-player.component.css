@@ -1,0 +1,83 @@
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  
+
+  
+  .input {
+    width: 320px;
+  }
+  
+  .ml-20 {
+    margin-right: 0px;
+  }
+  
+  .mr-20 {
+    margin-left: 1300px;
+  }
+  
+  .text {
+    color: darkcyan;
+    font-size: large;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .main-body {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1248px;
+  }
+  
+  main-body mat-form-field {
+    width: 100%;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .heading {
+    font-size: 22px;
+    font-weight: bold;
+    color:blue;
+    margin-left: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+  }
+  .btn-prompt{
+    margin-left: 160px;
+    margin-top: 10px;
+
+}
+.cancel-button{
+    border-color: gray;
+    color:grey;
+    margin-right: 10px;
+    
+}
+.cancel-button:hover{
+    background-color: grey;
+    color: white;
+}
+.page{
+  width: 320px;
+}
+button{
+  width: 70px;
+}
+  

@@ -1,0 +1,55 @@
+/* Basic styling for tabs and tab content */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .tab {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #f2f2f2;
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  .tab.active {
+    background-color: white;
+  }
+  
+  .tab-content {
+    display: none;
+    padding: 20px;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+
+  .team-box {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f2f2f2;
+  }
+  
+  .team-column {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  .details-column {
+    flex: 2;
+    padding: 0 10px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }

@@ -1,0 +1,30 @@
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center the content within the toolbar */
+    width: 100%;
+  }
+  
+  .example-spacer {
+    flex: 1; /* This will take up all available space, pushing the content to the right */
+  }
+  .example-icon {
+    position: relative;
+  }
+  
+  .profile-button {
+    width: 36px; /* Adjust the size as needed */
+    height: 36px; /* Adjust the size as needed */
+    border-radius: 50%;
+    background-color: #2196F3; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px; /* Adjust the font size as needed */
+    cursor: pointer;
+  }
+  span{
+    margin-left: 20px;
+  }
+ 

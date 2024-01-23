@@ -1,0 +1,79 @@
+<div class="tabs">
+    <div class="tab" [class.active]="activeTab === 'liveTab'" (click)="openTab('liveTab')">Live Matches</div>
+    <div class="tab" [class.active]="activeTab === 'upcomingTab'" (click)="openTab('upcomingTab')">Upcoming Matches
+    </div>
+    <div class="tab" [class.active]="activeTab === 'completedTab'" (click)="openTab('completedTab')">Completed Matches
+    </div>
+</div>
+
+<div id="liveTab" class="tab-content" [class.active]="activeTab === 'liveTab'">
+    <h2>Live Matches</h2>
+    <div *ngFor="let match of presentMatches" class="team-box">
+
+        <div class="team-column">
+            <h3>Team 1</h3>
+            <p>{{ match.team1 }}</p>
+            <p>Start Date: {{ match.startDate }}</p>
+            <p>Players List: {{ match.team1Players.join(', ') }}</p>
+        </div>
+        <div class="team-column">
+            <h3>Team 2</h3>
+            <p>{{ match.team2 }}</p>
+            <p>End Date: {{ match.endDate }}</p>
+            <p>Players List: {{ match.team2Players.join(', ') }}</p>
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+<div id="upcomingTab" class="tab-content" [class.active]="activeTab === 'upcomingTab'">
+    <h2>Upcoming Matches</h2>
+    <div *ngFor="let match of upcomingMatches" class="team-box">
+      
+        <div class="team-column">
+          <h3>Team 1</h3>
+          <p>{{ match.team1 }}</p>
+          <p>Start Date: {{ match.startDate }}</p>
+          <p>Players List: {{ match.team1Players.join(', ') }}</p>
+        </div>
+        <div class="team-column">
+          <h3>Team 2</h3>
+          <p>{{ match.team2 }}</p>
+          <p>End Date: {{ match.endDate }}</p>
+          <p>Players List: {{ match.team2Players.join(', ') }}</p>
+        </div>
+        
+         
+        
+      </div>
+</div>
+
+<div id="completedTab" class="tab-content" [class.active]="activeTab === 'completedTab'">
+    <h2>Completed Matches</h2>
+    <div *ngFor="let match of pastMatches" class="team-box">
+      
+        <div class="team-column">
+          <h3>Team 1</h3>
+          <p>{{ match.team1 }}</p>
+          <p>Start Date: {{ match.startDate }}</p>
+          <p>Players List: {{ match.team1Players.join(', ') }}</p>
+        </div>
+        <div class="team-column">
+          <h3>Team 2</h3>
+          <p>{{ match.team2 }}</p>
+          <p>End Date: {{ match.endDate }}</p>
+          <p>Players List: {{ match.team2Players.join(', ') }}</p>
+        </div>
+        
+         
+        
+      </div>
+</div>

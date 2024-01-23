@@ -1,0 +1,16 @@
+a{
+    text-decoration: none;
+}
+.google{
+    cursor: pointer;
+}
+.warning{
+    margin-right: 5px;
+}
+.error{
+    display: inline-flex;
+    align-items: center;
+}
+.hidden {
+    display: none;
+  }

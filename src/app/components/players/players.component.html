@@ -1,0 +1,73 @@
+<div class="content-container">
+  <div class="header-container">
+    <span class="users-heading">Players</span>
+    <div class="search-container">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" class="search" #input />
+      <button mat-raised-button color="primary" (click)="addPlayer()" routerLink="add-player">
+        Add Player
+      </button>
+    </div>
+  </div>
+
+  <div class="table-outline">
+    <div class="mat-elevation-z8 table">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="playerName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Player Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.playerName }}</td>
+        </ng-container>
+
+        <!-- Lastname Column -->
+        <ng-container matColumnDef="jerseyNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Jersey Number
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.jerseyNumber }}</td>
+        </ng-container>
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Player Role
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.role }}</td>
+        </ng-container>
+        <ng-container matColumnDef="style">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Player Style
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.style }}</td>
+        </ng-container>
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Player Country
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.country }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="editPlayer(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deletePlayer(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>

@@ -1,0 +1,56 @@
+.content-container {
+    margin: 20px;
+  }
+  
+  .header-container {
+    margin-bottom: 10px;
+  }
+  
+  .mat-elevation-z8 {
+    margin-top: 10px;
+  }
+  span {
+    font-size: 24px; /* Adjust the font size as needed */
+    
+    color: black;
+  }
+  .spacer {
+    height: 20px;
+  }
+  
+  /* Style for the form field */
+  .player-name-select {
+    width: 37%;
+    margin-bottom: 10px; /* Adjust as needed */
+  }
+  
+  /* Style for the table */
+  .styled-table {
+    width: 100%;
+    margin-top: 10px; /* Adjust as needed */
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .styled-table th, .styled-table td {
+    
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background-color: #f2f2f2;
+  }
+  .warning{
+    margin-right: 5px;
+    
+  }
+  .error{
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+    color: red;
+    
+  }
+  
+  

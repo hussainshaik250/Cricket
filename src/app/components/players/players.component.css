@@ -1,0 +1,58 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    /* padding: 10px; */
+    /* padding-top: 50px; */
+  }
+  
+  .users-heading {
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: 500;
+    color: #000;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+    /* Push the search container to the right */
+    margin-right: 5px;
+    
+  }
+  
+  .search {
+    margin-right: 5px; /* Adjust the margin as needed */
+    height: 38px;
+    border-radius: 5px;
+  }
+  table{
+    box-shadow: 20px;
+    border-left: 50px;
+    
+  }
+  .table-outline{
+    padding: 15px;
+  }
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set to the height of the viewport */
+  }
+  
+  /* Style the header */
+  app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Set a high z-index to ensure it appears above other elements */
+  }
+  
+  /* Style the content container with a margin to prevent it from being hidden behind the fixed header */
+  .content-container {
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    /* margin-top: 10px;Set the height of your header here */
+    /* padding: 20px; Add padding to content for better spacing */
+  }

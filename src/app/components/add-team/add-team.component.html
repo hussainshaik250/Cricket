@@ -1,0 +1,47 @@
+<form [formGroup]="formGroup">
+  <h4 class="mx-auto heading">{{ editMode ? 'Edit Team' : 'Add Team'
+  }}</h4>
+  <div *ngIf="errorMessage !== ''" class="error-message">
+    <div class="error">
+      <mat-icon color="warn" class="warning">warning</mat-icon>
+      {{ errorMessage }}
+    </div>
+  </div>
+  <div class="mx-auto page">
+    <mat-form-field class="input">
+      <mat-label>{{addTeam.teamName}}</mat-label>
+      <input matInput placeholder="Team Name" formControlName="teamName" required />
+      <div *ngIf="hasError('teamName', 'required')" class="error-message">
+        {{addPlayer.teamName}}
+      </div>
+      <div *ngIf="hasError('teamName', 'pattern')" class="error-message">
+        {{addPlayer.spacesError}}
+      </div>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>{{addTeam.teamCode}}</mat-label>
+      <input matInput placeholder="Task Description" formControlName="teamCode" required />
+      <div *ngIf="hasError('teamCode', 'required')" class="error-message">
+        {{addTeam.codeError}}
+      </div>
+      <!-- <div *ngIf="hasError('teamCode', 'pattern')" class="error-message">Only alphabets,numbers and spaces are allowed</div> -->
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>{{addTeam.teamColor}}</mat-label>
+      <input matInput placeholder="Team Color" formControlName="teamColor" required />
+      <div *ngIf="hasError('teamColor', 'required')" class="error-message">
+        {{addTeam.colorError}}
+      </div>
+      <div *ngIf="hasError('teamColor', 'pattern')" class="error-message">
+       {{addPlayer.spacesError}}
+      </div>
+    </mat-form-field>
+    <div class="btn-prompt">
+      <button type="button" class="btn btn-outline-success cancel-button" (click)="closeDialog()" >
+        {{actions.cancel}}</button>&nbsp;
+      <button type="button" class="btn btn-outline-success" (click)="onSubmit()">
+        {{ editMode ? "Update" : "Add" }}
+      </button>
+    </div>
+  </div>
+</form>

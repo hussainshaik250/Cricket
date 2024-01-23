@@ -1,0 +1,37 @@
+<div class="content-container">
+  <div class="header-container">
+    <span class="users-heading">{{ teamName }} registered players</span>
+  </div>
+  <div *ngIf="maxSelectionReached" class="error-message">
+    <div class="error">
+      <mat-icon color="warn" class="warning">warning</mat-icon>
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8 table">
+    <!-- Stylish Form Field -->
+    <mat-form-field appearance="outline" class="player-name-select">
+      <mat-label>Player Name</mat-label>
+      <mat-select [(value)]="selectedPlayers" (selectionChange)="onSelectionChange()" multiple>
+        <mat-option *ngFor="let player of dataSource.data" [value]="player">{{ player.playerName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Add spacing between form field and table -->
+    <div class="spacer"></div>
+
+    <!-- Stylish Table -->
+    <table mat-table [dataSource]="selectedPlayersDataSource" matSort class="styled-table">
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column | titlecase }}</th>
+        <td mat-cell *matCellDef="let player">{{ player[column] }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+  </div>
+  <button (click)="onSave()">save</button>
+</div>

@@ -1,0 +1,33 @@
+.btn-prompt{
+    margin-top: 250px;
+    gap: 20PX;
+}
+.cancel-button{
+    border-color: gray;
+    color:grey;
+    
+}
+.cancel-button:hover{
+    background-color: grey;
+    color: white;
+}
+/* .container-fluid{
+    width: 400px;
+    
+} */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .users-heading {
+    font-size: 24px; /* Adjust the font size as needed */
+    
+    color: black;
+  }
+  .row{
+    height: 80vh;
+  }
+  

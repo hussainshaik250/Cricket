@@ -1,0 +1,53 @@
+
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col header-height">
+      <header class="header">
+        <app-header></app-header>
+      </header>
+    </div>
+  </div>
+
+
+  <div class="row ">
+    <div class="col-2  sidebar">
+      <nav>
+        <a class="sidebar-item hovered-element" [class.active]="activeTab === 'Teams'"
+          (click)="setActiveTab('Teams')" >{{sidebarItems.teams}}</a>
+        <a class="sidebar-item hovered-element" [class.active]="activeTab === 'Players'"
+          (click)="setActiveTab('Players')" >{{sidebarItems.players}}</a>
+          <a class="sidebar-item hovered-element" [class.active]="activeTab === 'Leagues'"
+          (click)="setActiveTab('Leagues')"  >{{sidebarItems.leagues}}</a>
+      </nav>
+    </div>
+
+    <div class="col main-content">
+      <main>
+        <ng-container 
+          *ngIf="(booleanVariableUsername$ | async) && !(booleanVariablePassword$ | async); else passwordComponent">
+          <app-username ></app-username>
+        </ng-container>
+
+        <ng-template #passwordComponent>
+          <app-password *ngIf="(booleanVariablePassword$ | async); else registeredPlayersComponent"></app-password>
+        </ng-template>
+
+        <ng-template #registeredPlayersComponent>
+          <app-registered-players
+            *ngIf="(booleanVariableRegistered$ | async); else otherComponents"></app-registered-players>
+        </ng-template>
+
+        <ng-template #otherComponents>
+          <app-teams *ngIf="activeTab === 'Teams'" ></app-teams>
+          <app-players *ngIf="activeTab === 'Players'" ></app-players>
+          <app-league *ngIf="activeTab === 'Leagues'" ></app-league>
+          
+        </ng-template>
+      </main>
+    </div>
+  </div>
+  
+</div>

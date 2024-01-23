@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cricket-68fcb": {
+      "hosting": {
+        "cricket": [
+          "cricket-68fcb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cricket-68fcb"
+  }
+}

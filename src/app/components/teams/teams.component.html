@@ -1,0 +1,63 @@
+<div class="content-container">
+  <div class="header-container">
+    <span class="users-heading">Teams</span>
+    <div class="search-container">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" class="search" #input />
+      <button mat-raised-button color="primary" (click)="addTeam()" routerLink="add-team" >
+        Add Team
+      </button>
+    </div>
+    
+  </div>
+  <!-- <a [routerLink]="['/Teams']" >teams/</a>
+  <a [routerLink]="['/Teams', 'add-team']" >add-team</a> -->
+
+  <div class="table-outline">
+    <div class="mat-elevation-z8 table">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="teamName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Team Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.teamName }}</td>
+        </ng-container>
+
+        <!-- Lastname Column -->
+        <ng-container matColumnDef="teamCode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Team Code
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.teamCode }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="teamColor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Team Color</th>
+          <td mat-cell *matCellDef="let row">{{ row.teamColor }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="editTeam(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteTeam(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="secondary" (click)="addTeamPlayer(row)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>

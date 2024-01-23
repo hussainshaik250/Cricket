@@ -1,0 +1,29 @@
+<p>
+  <mat-toolbar color="primary" class="toolbar">
+    
+    <span>{{headerItems.title}} </span>
+
+    <!-- Spacer to push the content to the right -->
+    <span class="example-spacer"></span>
+
+    <!-- Container for username and profile icon -->
+    <div>
+      <!-- Display the username -->
+      <span> {{user | capitalize }} </span>
+
+
+      <button mat-icon-button class="example-icon" aria-label="Profile icon" [matMenuTriggerFor]="menu">
+        <div class="profile-button">
+          {{ userLetter | capitalize }}
+        </div>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="userInfo()" >{{headerItems.profile}}</button>
+        <button mat-menu-item (click)="passwordChange()" >{{headerItems.password}}</button>
+        <button mat-menu-item (click)="onLogout()">{{headerItems.logout}}</button>
+      </mat-menu>
+
+    </div>
+  </mat-toolbar>
+</p>

@@ -1,0 +1,88 @@
+<div class="content-container">
+    <div class="header-container">
+        <span class="users-heading">Leagues</span>
+        <div class="search-container">
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search" class="search" #input />
+            <button mat-raised-button color="primary" (click)="addLeague()" routerLink="add-league" >
+                Add League
+            </button>
+        </div>
+    </div>
+
+    <div class="table-outline">
+        <div class="mat-elevation-z8 table">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="leagueName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>League Name</th>
+                    <td mat-cell *matCellDef="let row">{{ row.leagueName }}</td>
+                </ng-container>
+
+                <!-- Lastname Column -->
+                <ng-container matColumnDef="startDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+                    <td mat-cell *matCellDef="let row">{{ row.startDate | customDate }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="endDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
+                    <td mat-cell *matCellDef="let row">{{ row.endDate | customDate }}</td>
+                </ng-container>
+                
+
+                <!-- <ng-container matColumnDef="team1">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Team-1</th>
+                    <td mat-cell *matCellDef="let row">{{ row.team1 }}</td>
+                </ng-container>
+                <ng-container matColumnDef="team1Players">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Team-1 Players
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                        {{ row.team1Players }}
+                    </td>
+                </ng-container><ng-container matColumnDef="team2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Team-2</th>
+                    <td mat-cell *matCellDef="let row">
+                        {{ row.team2 }}
+                    </td>
+                </ng-container><ng-container matColumnDef="team2Players">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Team-2 Players
+                    </th>
+                    <td mat-cell *matCellDef="let row">{{ row.team2Players }}</td>
+                </ng-container> -->
+                
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Action</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-icon-button color="primary" (click)="addMatch()" matTooltip="Add Match">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" (click)="viewMatches()" matTooltip="View Matches">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" (click)="editLeague(row)" matTooltip="Edit League">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteLeague(row)" matTooltip="Delete League">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">
+                        No data matching the filter "{{ input.value }}"
+                    </td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+</div>

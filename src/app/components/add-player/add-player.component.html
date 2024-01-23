@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup">
+  <h4 class="mx-auto heading">{{ editMode ? 'Edit Player' : 'Add Player'
+  }}</h4>
+  <div class="mx-auto page">
+
+    <mat-form-field class="input">
+      <mat-label>{{addPlayer.playerName}}</mat-label>
+      <input matInput placeholder="Player Name" formControlName="playerName" required>
+      <div *ngIf="hasError('playerName', 'required')" class="error-message">{{addPlayer.teamName}}</div>
+      <div *ngIf="hasError('playerName', 'pattern')" class="error-message">{{addPlayer.spacesError}}</div>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>{{addPlayer.jerseyNumber}}r</mat-label>
+      <input matInput placeholder="Jersey Number " formControlName="jerseyNumber" required>
+      <div *ngIf="hasError('jerseyNumber', 'required')" class="error-message">{{addPlayer.teamCode}}</div>
+      <!-- <div *ngIf="hasError('teamCode', 'pattern')" class="error-message">Only alphabets,numbers and spaces are allowed</div> -->
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>{{addPlayer.country}}</mat-label>
+      <input matInput placeholder="Country" formControlName="country" required>
+      <div *ngIf="hasError('country', 'required')" class="error-message">{{addPlayer.teamCountry}}</div>
+      <div *ngIf="hasError('country', 'pattern')" class="error-message">{{addPlayer.spacesError}}</div>
+
+
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>{{addPlayer.role}}</mat-label>
+      <mat-select placeholder="Select Batting/Bowling" formControlName="role">
+        <mat-option value="Batting">{{addPlayer.batting}}</mat-option>
+        <mat-option value="Bowling">{{addPlayer.bowling}}</mat-option>
+      </mat-select>
+      <div *ngIf="hasError('role', 'required')" class="error-message">{{addPlayer.roleError}}</div>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>{{addPlayer.style}}</mat-label>
+      <mat-select placeholder="Select Batsman/Bowler Type" formControlName="style">
+        <mat-option value="Right Hand Batsman">{{addPlayer.rightHand}}</mat-option>
+        <mat-option value="Left Hand Batsman">{{addPlayer.leftHand}}</mat-option>
+        <mat-option value="Spinner">{{addPlayer.spinner}}</mat-option>
+        <mat-option value="Fast Bowler">{{addPlayer.fastBowler}}</mat-option>
+      </mat-select>
+      <div *ngIf="hasError('style', 'required')" class="error-message">{{addPlayer.styleError}}</div>
+    </mat-form-field>
+    <div class="btn-prompt">
+      <button type="button" class="btn btn-outline-success cancel-button" (click)="closeDialog()" >{{actions.cancel}}</button>&nbsp;
+      <button type="button" class="btn btn-outline-success" (click)="onSubmit()">{{ editMode ? 'Update' : 'Add'
+        }}</button>
+
+    </div>
+  </div>
+</form>

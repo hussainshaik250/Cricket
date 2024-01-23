@@ -1,0 +1,32 @@
+<div class="header-container">
+  <h4 class="users-heading">Profile Details</h4>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card border-0 shadow p-3 h-100">
+        
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="current_username" name="current_username"
+            [(ngModel)]="current_username">
+          <label for="current_username">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" [disabled]="true">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="phonenumber" class="form-control" id="phonenumber" name="phonenumber" [(ngModel)]="phonenumber"
+            [disabled]="true">
+          <label for="phonenumber">Phone Number</label>
+        </div>
+
+        <div class="btn-prompt d-flex justify-content-end">
+          <button type="button" class="btn btn-outline-success cancel-button" (click)="close_Dialog()">Cancel</button>
+          <button type="button" class="btn btn-outline-success ml-2"
+            (click)="updateStudentUsername(current_username)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
